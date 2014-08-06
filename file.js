@@ -24,4 +24,18 @@ function prepareGallery() {
 	
 }
 
+function preparePlaceholder() {
+	var placeholder = createElement("img");
+	placeholder.setAttribute("id", "placeholder");
+	placeholder.setAttribute("src", "blank");
+	placeholder.setAttribute("alt", "my image gallery");
+	var description = document.createElement("p");
+	description.setAttribute("id", "description");
+	var desctext = document.createTextNode("Choose an image");
+	description.appendChild(desctext);
+	document.getElementsByTagName("body")[0].appendChild(placeholder);
+	document.getElementsByTagName("body")[0].appendChild(description);
+
+}
+
 window.onload = prepareGallery;
