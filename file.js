@@ -1,3 +1,15 @@
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			oldonload();
+			func();
+		}
+	}
+}
+
 function showPic(whichpic) {
 	if (!document.getElementById("placeholder")) return false;
 	var source = whichpic.getAttribute("href");
@@ -38,4 +50,5 @@ function preparePlaceholder() {
 
 }
 
-window.onload = prepareGallery;
+addLoadEvent(preparePlaceholder);
+addLoadEvent(prepareGallery);
